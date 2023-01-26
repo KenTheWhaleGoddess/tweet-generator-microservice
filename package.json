@@ -7,6 +7,9 @@
   "scripts": {
     "publish": "now --target production"
   },
+  "engines": {
+    "node": "^14"
+  },
   "dependencies": {
     "atob": "^2.1.2",
     "chrome-aws-lambda": "10.1.0",
