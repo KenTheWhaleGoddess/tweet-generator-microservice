@@ -16,7 +16,7 @@
     "ejs": "^2.6.2",
     "express": "^4.17.1",
     "node-fetch": "^2.6.0",
-    "puppeteer-core": "^1.11.1",
+    "puppeteer-core": "19.6.0",
     "twemoji": "^12.1.2"
   },
   "devDependencies": {
