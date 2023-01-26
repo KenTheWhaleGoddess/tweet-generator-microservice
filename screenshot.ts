@@ -1,6 +1,6 @@
 import { NowRequest, NowResponse } from '@now/node'
 import chrome from 'chrome-aws-lambda'
-import puppeteer from 'puppeteer-core'
+import chromium from 'chrome-aws-lambda';
 
 import extractTweetData from './extractTweetData'
 
@@ -26,9 +26,14 @@ export default async (req: NowRequest, res: NowResponse) => {
           headless: chrome.headless
         })
     }
-
-    const browser = await puppeteer.launch(options)
-
+  
+    const browser = await chromium.puppeteer.launch({
+       args: [...chromium.args, "--hide-scrollbars", "--disable-web-security"],
+       defaultViewport: chromium.defaultViewport,
+       executablePath: await chromium.executablePath,
+       headless: true,
+       ignoreHTTPSErrors: true,
+    })
     const page = await browser.newPage()
     await page.goto(`${req.headers['x-forwarded-proto']}://${req.headers['x-now-deployment-url']}/tweet?tweetData=${JSON.stringify(tweetData)}&style=${req.query.style || ''}`)
     const file = await page.screenshot({
