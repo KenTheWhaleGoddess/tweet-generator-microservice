@@ -22,7 +22,7 @@ export default async (req: NowRequest, res: NowResponse) => {
         }
         : {
 
-          process.platform === 'win32'
+           executablePath: process.platform === 'win32'
             ? 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe'
             : process.platform === 'linux'
             ? '/usr/bin/google-chrome'
