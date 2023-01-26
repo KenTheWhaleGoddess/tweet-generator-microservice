@@ -21,7 +21,7 @@ export default async (req: NowRequest, res: NowResponse) => {
           ignoreDefaultArgs: ['--disable-extensions']
         }
         : {
-          executablePath: 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
+          executablePath: '/usr/bin/google-chrome',
           ignoreDefaultArgs: ['--disable-extensions'],
           args: chrome.args,
           headless: chrome.headless
